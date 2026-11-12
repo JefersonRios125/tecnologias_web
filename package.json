@@ -1,0 +1,21 @@
+{
+  "name": "tecnologias-web",
+  "version": "1.0.0",
+  "description": "Interface web para o catálogo de tecnologias de programação",
+  "scripts": {
+    "dev": "vite --host localhost --port 5173 --strictPort",
+    "build": "vite build",
+    "preview": "vite preview --host localhost --port 5173 --strictPort"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "vite": "^8.3.8"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=24"
+  }
+}

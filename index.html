@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090c13">
+  <meta name="description" content="Cadastro e consulta de tecnologias de programação.">
+  <title>Catálogo de tecnologias</title>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-content">
+      <span class="brand"><span class="brand-icon" aria-hidden="true">&lt;/&gt;</span> Catálogo de tecnologias</span>
+      <button id="sair" class="secondary logout-button" type="button" hidden>Sair da conta</button>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section id="login" class="card login-card" aria-labelledby="login-titulo">
+      <h1 id="login-titulo">Entrar no catálogo</h1>
+      <p>Acesse o cadastro de tecnologias de programação.</p>
+      <form id="login-form">
+        <label>Usuário
+          <input name="usuario" autocomplete="username" required maxlength="100">
+        </label>
+        <label>Senha
+          <input name="senha" type="password" autocomplete="current-password" required>
+        </label>
+        <button type="submit">Entrar</button>
+      </form>
+      <p id="login-feedback" class="feedback" role="status" aria-atomic="true"></p>
+    </section>
+
+    <section id="catalogo" hidden aria-labelledby="catalogo-titulo">
+      <div class="intro">
+        <h1 id="catalogo-titulo">Tecnologias</h1>
+        <p>Registre a linguagem base e o tempo médio para atingir proficiência.</p>
+      </div>
+
+      <div class="card editor">
+        <h2 id="form-titulo">Nova tecnologia</h2>
+        <form id="tecnologia-form">
+          <div class="form-grid">
+            <label>Nome
+              <input name="nome" placeholder="Ex. Laravel" required maxlength="100">
+            </label>
+            <label>Base
+              <input name="base" placeholder="Ex. PHP" required maxlength="80">
+            </label>
+            <label>Tempo médio
+              <input name="tempo" type="number" min="1" max="9999" step="1" required placeholder="Ex. 3">
+            </label>
+            <label>Unidade
+              <select name="unidade">
+                <option value="dias">Dias</option>
+                <option value="semanas">Semanas</option>
+                <option value="meses" selected>Meses</option>
+                <option value="anos">Anos</option>
+              </select>
+            </label>
+          </div>
+          <div class="form-actions">
+            <button id="salvar" type="submit">Cadastrar</button>
+            <button id="cancelar-edicao" class="secondary" type="button" hidden>Cancelar edição</button>
+          </div>
+        </form>
+      </div>
+
+      <section class="card records" aria-labelledby="registros-titulo">
+        <div class="records-header">
+          <div>
+            <h2 id="registros-titulo">Tecnologias cadastradas</h2>
+            <p id="total"></p>
+          </div>
+          <button id="atualizar" class="secondary" type="button">Atualizar</button>
+        </div>
+        <p id="catalogo-feedback" class="feedback" role="status" aria-atomic="true"></p>
+        <div class="table-wrap" tabindex="0" role="region" aria-labelledby="registros-titulo">
+          <table>
+            <thead><tr><th scope="col">Nome</th><th scope="col">Base</th><th scope="col">Tempo de aprendizado</th><th scope="col">Ações</th></tr></thead>
+            <tbody id="registros"></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <dialog id="exclusao" aria-labelledby="exclusao-titulo" aria-describedby="exclusao-texto">
+    <h2 id="exclusao-titulo">Excluir tecnologia</h2>
+    <p id="exclusao-texto"></p>
+    <form method="dialog" class="form-actions">
+      <button class="secondary" value="cancelar" autofocus>Cancelar</button>
+      <button class="danger" value="excluir">Excluir</button>
+    </form>
+  </dialog>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
